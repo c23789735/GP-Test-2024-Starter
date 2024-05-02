@@ -1,8 +1,8 @@
-extends Button
+extends Sprite2D
 
 var  number:float
-var TextureToUse := load("res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex")
-var Radius : float = 100.0
+var TextureToUse := load("res://icon.svg")
+var Radius : float = 10.0
 
 # Called when the node enters the scene tree for the first time.
 # Replace with function body.
@@ -23,7 +23,8 @@ func _ready() -> void:
 	
 
 
-func _on_pressed(spawn):
+
+func _on_button_pressed():
 	for i in range( 0, number ):
 		
 		# create a new node or instance something
@@ -40,8 +41,3 @@ func _on_pressed(spawn):
 		# update the node transform
 		newNode.transform = nTransform
 	
-	
-	
-
-
-# Replace with function body.
