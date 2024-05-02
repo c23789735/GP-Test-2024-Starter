@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=4 format=3 uid="uid://bunyohpobvu8b"]
 
 [ext_resource type="Script" path="res://Count-lable.gd" id="1_m2ciw"]
+[ext_resource type="Script" path="res://Spawn.gd" id="2_ijo73"]
+[ext_resource type="Texture2D" uid="uid://rb8smo0f45mc" path="res://icon.svg" id="3_1xps2"]
 
 [node name="root" type="Node2D"]
 
@@ -38,5 +40,11 @@ offset_top = 107.0
 offset_right = 212.0
 offset_bottom = 156.0
 text = "Create Nodes"
+script = ExtResource("2_ijo73")
 
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(535, 469)
+texture = ExtResource("3_1xps2")
+
+[connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/Button" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/HSlider/Label" method="_on_h_slider_value_changed"]
