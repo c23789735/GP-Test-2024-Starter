@@ -13,3 +13,11 @@ func _ready():
 
 func _on_h_slider_value_changed(value):
 	number = value
+
+
+
+
+
+func _on_pressed():
+	pass# Replace with function body.
+	

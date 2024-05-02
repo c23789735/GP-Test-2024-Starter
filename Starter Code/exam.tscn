@@ -48,3 +48,4 @@ texture = ExtResource("3_1xps2")
 
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/Button" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/HSlider/Label" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Node2D/CanvasLayer/Button" to="Node2D/CanvasLayer/Button" method="_on_pressed"]
