@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=7 format=3 uid="uid://bunyohpobvu8b"]
 
 [ext_resource type="Script" path="res://Count-lable.gd" id="1_m2ciw"]
 [ext_resource type="Texture2D" uid="uid://rb8smo0f45mc" path="res://icon.svg" id="3_1xps2"]
@@ -7,8 +7,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gxja"]
 size = Vector2(130, 124)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgngm"]
-size = Vector2(1164.5, 20)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iuhk3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok02"]
+size = Vector2(1221.5, 20)
 
 [node name="root" type="Node2D"]
 
@@ -64,14 +66,16 @@ texture = ExtResource("3_1xps2")
 z_index = 1
 shape = SubResource("RectangleShape2D_3gxja")
 
-[node name="Area2D" type="Area2D" parent="Node2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+disable_mode = 1
+physics_material_override = SubResource("PhysicsMaterial_iuhk3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
-position = Vector2(507.75, 1022)
-shape = SubResource("RectangleShape2D_mgngm")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(474.25, 1022)
+shape = SubResource("RectangleShape2D_3ok02")
 
-[connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/Button" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/HSlider/Label" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/Button" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/Sprite2D" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Node2D/CanvasLayer/Button" to="Node2D/CanvasLayer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Node2D/CanvasLayer/Button" to="Node2D/Sprite2D" method="_on_button_pressed"]
