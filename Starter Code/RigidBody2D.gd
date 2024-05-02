@@ -10,3 +10,11 @@ func _ready():
 func _process(delta):
 	pass
 
+
+
+func _on_static_body_2d_input_event(viewport, event, shape_idx):
+	pass# Replace with function body.
+
+
+func _on_hidden():
+	pass # Replace with function body.

@@ -79,3 +79,5 @@ shape = SubResource("RectangleShape2D_3ok02")
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/Sprite2D" method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Node2D/CanvasLayer/Button" to="Node2D/CanvasLayer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Node2D/CanvasLayer/Button" to="Node2D/Sprite2D" method="_on_button_pressed"]
+[connection signal="hidden" from="Node2D/RigidBody2D" to="Node2D/RigidBody2D" method="_on_hidden"]
+[connection signal="input_event" from="Node2D/StaticBody2D" to="Node2D/RigidBody2D" method="_on_static_body_2d_input_event"]
