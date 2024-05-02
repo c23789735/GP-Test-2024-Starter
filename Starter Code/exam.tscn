@@ -1,12 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bunyohpobvu8b"]
+[gd_scene load_steps=6 format=3 uid="uid://bunyohpobvu8b"]
 
 [ext_resource type="Script" path="res://Count-lable.gd" id="1_m2ciw"]
 [ext_resource type="Texture2D" uid="uid://rb8smo0f45mc" path="res://icon.svg" id="3_1xps2"]
-[ext_resource type="Script" path="res://accspawn.gd" id="4_a1veo"]
+[ext_resource type="Script" path="res://RigidBody2D.gd" id="3_ve4kh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3gxja"]
+size = Vector2(130, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mgngm"]
+size = Vector2(1164.5, 20)
 
 [node name="root" type="Node2D"]
 
 [node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-1, 2)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Node2D"]
 
@@ -44,7 +51,24 @@ text = "Create Nodes"
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
 position = Vector2(509, 484)
 texture = ExtResource("3_1xps2")
-script = ExtResource("4_a1veo")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Node2D"]
+position = Vector2(277, 306)
+script = ExtResource("3_ve4kh")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D/RigidBody2D"]
+position = Vector2(-1, 0)
+texture = ExtResource("3_1xps2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/RigidBody2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_3gxja")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(507.75, 1022)
+shape = SubResource("RectangleShape2D_mgngm")
 
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/Button" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="Node2D/CanvasLayer/HSlider" to="Node2D/CanvasLayer/HSlider/Label" method="_on_h_slider_value_changed"]

@@ -1,8 +1,8 @@
 extends Sprite2D
 
 var  number:float
-var TextureToUse := load("res://icon.svg")
-var Radius : float = 10.0
+var sprite = Sprite2D.new()
+@export var thing:PackedScene
 
 # Called when the node enters the scene tree for the first time.
 # Replace with function body.
@@ -24,20 +24,17 @@ func _ready() -> void:
 
 
 
-func _on_button_pressed():
-	for i in range( 0, number ):
+func _on_button_pressed(event):
+	if event:	
+		var new_thing = thing.instantiate()
+		new_thing.global_position = event.global_position
+		new_thing.name = "block " + str(event)
+		get_tree().get_root().add_child(new_thing) 
 		
-		# create a new node or instance something
-		var newNode : Sprite2D
-		newNode.texture = TextureToUse
-		# add it beneath the current node
-		add_child( newNode )
-		# build a transform that consists of an offset, then rotation
-		var nTransform = newNode.get_transform()
-		# offset upwards based on the radius
-		nTransform = nTransform.translated( Vector2( 0.0, -Radius ) )
-		# rotate (around 0,0) based on the angle between each node
-		nTransform = nTransform.rotated( deg_to_rad( i * 360.0 / float(number) ) )
-		# update the node transform
-		newNode.transform = nTransform
+		## scale = Vector2.ZERO
+		##var tween = create_tween().set_trans(Tween.TRANS_CIRC)
+		##tween.tween_property($"../block", "global_position", event.position, 1.0)
+	pass
+		
+		#
 	
